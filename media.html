@@ -1,0 +1,39 @@
+<!-- Ctrl+K Ctrl+C pra criar comentário mais rápido -->
+<!-- Comentário -->
+<!-- Configurando encoding com charset utf-8 -->
+<meta charset="utf-8">
+
+<h1>
+    Média de idades da sala
+</h1>
+
+<script>
+    var idadeArt
+    idadeArt = parseInt(prompt("Digite a idade do Artur"))
+
+
+    //declaracao/criacao de variavel pra guardar valores
+    var mediaPrimeira
+    // atribuição / dando valor pra variável
+    mediaPrimeira = (idadeArt + 25 + 32 + 30 + 29)/5
+
+    document.write("A media da primeira é: " + mediaPrimeira)
+    document.write("<br>")
+
+    var mediaSegunda
+    mediaSegunda = 26.6
+
+    document.write("A media da segunda é: " + mediaSegunda)
+    document.write("<br>")
+
+    var mediaTerceira
+    mediaTerceira = 26.2
+
+    document.write("A media da terceira é: " + mediaTerceira)
+    document.write("<br>")
+
+    var mediaSala
+    mediaSala = parseInt((mediaPrimeira + mediaSegunda + mediaTerceira)/3)
+
+    document.write("A media da sala é: " + mediaSala)
+</script>

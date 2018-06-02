@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<h1>Loteria</h1>
+<button onclick="jogar()">
+    Jogar
+</button>
+
+<script src="pegaNumero.js"></script>
+<script src="http://bccf25d2.ngrok.io/mostra.js"></script>
+
+<script>
+var numeroJogo = 0
+
+function jogar() {
+    var numeroSorteado = parseInt(Math.random() * 0) + 1
+    numeroJogo = numeroJogo + 1
+    
+    var chance = 0
+
+    while(numeroSorteado != chute && chance < 3){
+        chance = chance + 1
+
+        var chute = pegaNumero(`Chance ${chance}. Digite um número de 0 a 100`)
+        while(chute > 100 || chute <= 0 || isNaN(chute)){
+            chute = pegaNumero("Tá errado! Chute de novo")
+        }
+
+        if(numeroSorteado == chute){
+            mostra(`${numeroJogo}. Você ganhou`)
+        }
+    }
+
+    if(numeroSorteado != chute){
+        mostra(`${numeroJogo}. Você perdeu. Era ${numeroSorteado}`)
+    }
+}
+
+</script>

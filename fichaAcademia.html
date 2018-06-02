@@ -1,0 +1,100 @@
+<meta charset ="utf-8">
+
+<script src="http://bccf25d2.ngrok.io/mostra.js"></script>
+<script src="http://bccf25d2.ngrok.io/libIdade.js"></script>
+<script src="pegaNumero.js"></script>
+
+<h1>Cadastro da Academia Caelum</h1>
+
+Nome
+<br>
+<input id="inputNome" value="Artur">
+<br><br>
+
+Peso
+<br>
+<input id="inputPeso" value="74">
+<br><br>
+
+Altura
+<br>
+<input id="inputAltura" value="1,8">
+<br><br>
+
+Data de Nascimento
+<br>
+<input id="inputDataNascimento" value="19/06/1993">
+<br><br>
+
+<input type="checkbox" id="inputCardiaca"> Tem problemas cardíacos?
+<br><br>
+
+<button onclick="ficha()">
+    Cadastrar
+</button>
+
+<!-- Debugger -->
+<script>
+function formataNumero(numero){
+    return numero.toFixed(2).replace(".", ",")
+}
+
+var numeroDaFicha = 0
+
+function ficha(){
+
+    numeroDaFicha = numeroDaFicha + 1
+
+    var nome = inputNome.value
+
+    var peso = pegaNumeroInput(inputPeso)
+
+    var altura = pegaNumeroInput(inputAltura)
+
+    var dataNascimento = inputDataNascimento.value
+
+    var dataNascimentoLista = dataNascimento.split("/")
+    
+    var dia = dataNascimentoLista[0]
+    var mes = dataNascimentoLista[1]
+    var ano = dataNascimentoLista[2]
+
+    var idade = calculaIdade(dia, mes, ano)
+
+    var ehCardiaca = inputCardiaca.checked
+    var ehMenorDeIdade = idade < 15
+
+    if(ehCardiaca || ehMenorDeIdade || ehIdosa) {
+        var acompanhamentoMedico = "Precisa de acompanhamento médico"
+    }
+
+    if(!ehCardiaca && !ehMenorDeIdade) {
+        var acompanhamentoMedico = "NÃO precisa de acompanhamento médico"
+    }
+
+    var ehIdosa = idade > 63
+
+    if(ehIdosa && !ehCardiaca){
+        var acompanhamentoMedico = "Necessita apenas de atestado médico"
+    }
+
+    // template string/texto
+    mostra(`
+        <br>
+        Ficha ${numeroDaFicha}
+        <hr>
+        Nome: ${nome}
+        <br>
+        Peso: ${formataNumero(peso)} kg
+        <br>
+        Altura: ${formataNumero(altura)} m
+        <br>
+        Data de nascimento: ${dataNascimento}
+        <br>
+        Idade: ${idade}
+        <br>
+        
+        ${acompanhamentoMedico}
+    `)
+}
+</script>

@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+
+<script src="http://192.168.133.144:8080/libRelogio.js"></script>
+<script src="http://040cfd1c.ngrok.io/libRelogio.js"></script>
+<script src="pegaNumero.js"></script>
+
+<script>
+    function formataMoeda(valor) {
+        return valor.toFixed(2).replace(".", ",")
+    }
+</script>
+
+<h1>
+    Uber vs Carro
+</h1>
+
+<h3>Uber</h3>
+
+<script>
+    var distancia = pegaNumero("Digite a distância")
+
+    var velocidadeMedia = 25
+
+    var tempoEmHoras = distancia / velocidadeMedia
+
+    var totalUber = 0.26 * tempoEmHoras * 60 + distancia * 1.4
+
+    document.write(`
+        Tempo: ${formataRelogio(tempoEmHoras * 60)}
+        <br>
+        Total: R$ ${formataMoeda(totalUber)}
+    `)
+
+</script>
+
+<h3>Carro</h3>
+
+<script>
+    var autonomia = pegaNumero("Digite a autonomia")
+
+    var precoLitroGasolina = 3.99
+
+    //Regra de negócios
+    var gastoGasolina = (distancia / autonomia) * precoLitroGasolina
+    
+    var gastoEstacionamento = pegaNumero("Digite o preço do estacionamento")
+
+    document.write("Estacionamento: R$ " + formataMoeda(gastoEstacionamento))
+    document.write("<br>")
+    
+    document.write("Gasolina: R$ " + formataMoeda(gastoGasolina))
+    document.write("<br>")
+
+    var totalCarro = (gastoGasolina + gastoEstacionamento)
+
+    document.write("Total: R$ " + formataMoeda(totalCarro))
+    document.write("<br>")
+</script>
