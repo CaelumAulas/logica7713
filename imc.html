@@ -4,12 +4,9 @@
 
 <script>
     // Arredondar o valo do imc
+    var peso = pegaNumero("Digite o peso")
 
-    mensagem = "Digite o peso"
-    var peso = pegaNumero()
-
-    mensagem = "Digite a altura"
-    var altura = pegaNumero()
+    var altura = pegaNumero("Digite a altura")
 
     var imc = (peso / (altura * altura)).toFixed(2)
 

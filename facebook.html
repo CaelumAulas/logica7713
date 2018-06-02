@@ -3,11 +3,25 @@
 </h1>
 
 <img src="https://img1.ibxk.com.br/2017/07/13/13160112901226.jpg?w=700">
-
-<p>
-    bla bla bla bla
-</p>
+<br>
 
 <script>
-alert(2+2*3/10-2)
+
+var posts = [
+    "Bla bla bla bla bla bla bla",
+    "Cla cla cla cla cla cla  cla",
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ullam corporis numquam, aut illum magni eveniet officia exercitationem odio assumenda debitis eos obcaecati possimus autem eligendi omnis laborum cum tenetur?",
+    "Post 4",
+    "Post 5",
+    "Post 6",
+    "Post 7"
+]
+
+var totalDePosts = posts.length
+var numeroDoPost = 0
+
+while(numeroDoPost < totalDePosts){
+    document.write(`${posts[numeroDoPost]} <br>`)
+    numeroDoPost = numeroDoPost + 1
+}
 </script>
